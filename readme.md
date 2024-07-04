@@ -4,7 +4,7 @@ This is a Flask application that provides API endpoints to manage CVE (Common Vu
 
 ## File Structure
 ```bash
-    my_python_app/
+    SecOps-assignment/
     │
     ├── cve_psql_db_setup.py
     ├── .env
