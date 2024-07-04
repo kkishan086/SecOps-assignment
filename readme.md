@@ -3,14 +3,15 @@
 This is a Flask application that provides API endpoints to manage CVE (Common Vulnerabilities and Exposures) data using a PostgreSQL database.
 
 ## File Structure
-
-my_python_app/
-│
-├── cve_psql_db_setup.py
-├── .env
-├── CVE_DATABASE.csv
-├── server.py
-└── README.md
+```bash
+    my_python_app/
+    │
+    ├── cve_psql_db_setup.py
+    ├── .env
+    ├── CVE_DATABASE.csv
+    ├── server.py
+    └── README.md
+```
 
 - `cve_psql_db_setup.py`: Script to set up the PostgreSQL database.
 - `.env`: Environment variables file containing configuration such as database credentials.
