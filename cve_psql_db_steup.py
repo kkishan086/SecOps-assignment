@@ -1,16 +1,18 @@
 import csv
 import psycopg2
-
+import os
+from dotenv import load_dotenv
+load_dotenv()
 # Define the path to the CSV file
 csv_file_path = 'CVE_DATABASE.csv' 
 
-# Database connection parameters
+# Get database parameters from environment variables
 db_params = {
-    'dbname': 'db_cve',
-    'user': 'postgres',
-    'password': 'Kishan85@',
-    'host': 'localhost',
-    'port': '5432'
+    'dbname': os.getenv('DB_NAME'),
+    'user': os.getenv('DB_USER'),
+    'password': os.getenv('DB_PASSWORD'),
+    'host': os.getenv('DB_HOST'),
+    'port': os.getenv('DB_PORT')
 }
 
 # Connect to the PostgreSQL database

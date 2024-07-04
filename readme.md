@@ -2,37 +2,43 @@
 
 This is a Flask application that provides API endpoints to manage CVE (Common Vulnerabilities and Exposures) data using a PostgreSQL database.
 
+## File Structure
+
+my_python_app/
+│
+├── cve_psql_db_setup.py
+├── .env
+├── CVE_DATABASE.csv
+├── server.py
+└── README.md
+
+- `cve_psql_db_setup.py`: Script to set up the PostgreSQL database.
+- `.env`: Environment variables file containing configuration such as database credentials.
+- `CVE_DATABASE.csv`: CSV file containing the data to be loaded into the database.
+- `server.py`: Script to run the server.
+
 ## Setup
 
 1. Install the required dependencies:
     ```bash
-    pip install flask psycopg2-binary
+    pip install flask psycopg2-binary python-dotenv os
     ```
 
-2. Update the database connection parameters in `app.py` with your PostgreSQL credentials:
-    ```python
-    db_params = {
-        'dbname': 'your_database_name',
-        'user': 'your_username',
-        'password': 'your_password',
-        'host': 'your_host',
-        'port': 'your_port'
-    }
+2. Update the database connection parameters in `.env` with your PostgreSQL credentials:
+   ```bash
+      DB_NAME=your_database_name
+      DB_USER=your_username
+      DB_PASSWORD=your_password
+      DB_HOST=your_host
+      DB_PORT=your_port
     ```
 
-3. Set up the PostgreSQL database:
-    ```sql
-    CREATE DATABASE your_database_name;
-    
-    CREATE TABLE vulnerabilities (
-        cve_id VARCHAR PRIMARY KEY,
-        severity VARCHAR,
-        cvss FLOAT,
-        affected_packages TEXT,
-        description TEXT,
-        cwe_id VARCHAR
-    );
-    ```
+3. Set up the PostgreSQL database for CVE's:
+- Run this command:
+    ```bash
+    python cve_psql_db_steup.py
+
+    ````
 
 4. Run the Flask application:
     ```bash
@@ -78,4 +84,5 @@ This is a Flask application that provides API endpoints to manage CVE (Common Vu
 ## Error Handling
 
 The application handles errors such as missing fields, invalid CVE IDs, and database connection issues by returning appropriate error responses.
+
 
